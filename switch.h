@@ -19,8 +19,8 @@ public:
 // when we want it to occurs:
 // emit mSignal();
 
-
 private:
+    // TODO: think about switches having vectors of lights
     //std::vector <Light*> sLights;
 
 

@@ -9,6 +9,7 @@ Room::Room(std::string name, int id, QWidget* parent) : QWidget(parent)
 
 Room::~Room()
 {
+    // Delete everything
     for(int i=0; i<mModules.size(); i++)
     {
         delete mModules[i];

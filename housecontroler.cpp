@@ -26,10 +26,10 @@ int main(int argc, char *argv[])
     // Fill house
     myHouse->fillHouse();
 
-
-
     // Display main app window
     myHouse->show();
+
+    // TODO: Think about how to continuously request the server and update the app
 
     // If file received and is valid -> show the house
 

@@ -16,16 +16,14 @@ class House : public QWidget
 public:
         explicit House(const char* gateway_address);
         ~House();
-        bool connectToGateway();
-        bool getJsonFromGateway();
-        void fillHouse();
+        bool connectToGateway();                    // Connect to HTTP Server
+        bool getJsonFromGateway();                  // Get the json file
+        void fillHouse();                           // Fill the house with rooms and modules
 
 private:
-        //QPushButton* mButton;
-        const char* mGatewayAddress;
-        int mRoomsCount = 0;
-        // Rooms vector
-        std::vector<Room*> mRooms; //use push_back() to add rooms
+        const char* mGatewayAddress;                // URL address of the gateway
+        int mRoomsCount = 0;                        // Number of rooms in the house
+        std::vector<Room*> mRooms;                  // List of rooms in the house
 
 };
 

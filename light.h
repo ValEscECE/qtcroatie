@@ -16,12 +16,12 @@ public:
     virtual ~Light();
 
 public slots:
-    void switchPixmap();
+    void switchPixmap();                    // Swith images ON/OFF (temporary)
 
 private:
-    QLabel* mLabelImg;
-    QPixmap* mPixmapImgON;
-    QPixmap* mPixmapImgOFF;
+    QLabel* mLabelImg;                      // Label for text or image
+    QPixmap* mPixmapImgON;                  // Image ON
+    QPixmap* mPixmapImgOFF;                 // Image OFF
 
 };
 
