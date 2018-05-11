@@ -1,4 +1,4 @@
-# Qt Croatie Proect
+# Qt Croatie Project
 
 The main goal of this Qt App is to control switches and lights in a house.
 
