@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "House.h"
+#include "house.h"
 
 const char* gateway_address = "http://example.io/";
 

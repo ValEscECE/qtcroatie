@@ -4,7 +4,6 @@
 House::House(const char* gateway_address) : QWidget()
 {
     mGatewayAddress = gateway_address;
-    setFixedSize(800, 500);
     setWindowTitle("Dobardan Valentine");
 }
 
@@ -52,16 +51,8 @@ void House::fillHouse()
 
     // Create a new room "salon" at index 0
     Room* sRoom = new Room("salon", mRoomsCount, this);
-    bool* sState = false;
 
-    // Create a switch and a light, and push them back to modules list
-    Switch* sSwitch = new Switch ("sw1", sState, sRoom);
-    sRoom->mModules.push_back(sSwitch);
-    Light* sLight = new Light ("lt1", sState, sRoom);
-    sRoom->mModules.push_back(sLight);
-
-    // Connect switch and light (temporary)
-    QObject::connect(sSwitch->mButton, SIGNAL(clicked()), sLight, SLOT(switchPixmap()));
-
+    // TODO: Parse everything contained inside the room
+    sRoom->fillRoom();
 }
 

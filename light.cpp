@@ -15,7 +15,7 @@ Light:: Light(std::string name, bool state, QWidget* parent) : Module(name, stat
     mLabelImg = new QLabel(this);
     mLabelImg->setText("Light OFF");
     //mLabelImg->setPixmap(QPixmap("light-on.png"));
-    move(10,10);
+    //move(10,10);
     /*QGridLayout *gridLayout = new QGridLayout;
     gridLayout->addWidget(mLabelImg);
     this->setLayout(gridLayout);*/
