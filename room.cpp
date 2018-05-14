@@ -5,35 +5,35 @@ Room::Room(std::string name, int id, QWidget* parent) : QWidget(parent)
     mName = name;
     mId = id;
     setFixedSize(mWidth, mHeight);
-    mLayout = new QHBoxLayout;
+    mLayout = new QVBoxLayout;
+    setLayout(mLayout);
 }
 
 bool Room::fillRoom(){
 
     // TODO: for each module, create it and push it
 
-    // Create a switch and a light, and push them back to modules list (temporary)
-    Switch* sSwitch = new Switch ("sw1", false, this);
-    addModule(sSwitch);
-    Light* sLight = new Light ("lt1", true, this);
-    addModule(sLight);
+    // Create a switch
+    Switch* sSwitch = new Switch ("SWITCH 1", false, this);
 
-    setLayout(mLayout);
-    // Connect switch and light (temporary)
-    QObject::connect(sSwitch->mButton, SIGNAL(clicked()), sLight, SLOT(switchPixmap()));
+    // TODO: parse the rest to know lights linked to this switch
+    sSwitch->fillSwitch();
+
+    // Add switch to list
+    addSwitch(sSwitch);
 }
 
-bool Room::addModule(Module* sModule){
-    mModules.push_back(sModule);
-    mLayout->addWidget(sModule);
+bool Room::addSwitch(Switch* sSwitch){
+    mSwitches.push_back(sSwitch);
+    mLayout->addWidget(sSwitch);
 }
 
 Room::~Room()
 {
     // Delete everything
-    for(int i=0; i<mModules.size(); i++)
+    for(int i=0; i<mSwitches.size(); i++)
     {
-        delete mModules[i];
-        mModules[i] = 0;
+        delete mSwitches[i];
+        mSwitches[i] = 0;
     }
 }

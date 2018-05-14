@@ -2,7 +2,7 @@
 #define ROOM_H
 
 #include <QWidget>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include "module.h"
 #include "switch.h"
 #include "light.h"
@@ -13,8 +13,8 @@ class Room : public QWidget
 public:
     explicit Room(std::string name, int id, QWidget* parent);
     ~Room();
-    bool fillRoom();
-    std::vector<Module*> mModules;  // List of modules present in the room
+    bool fillRoom(/* json structure to parse ? */);
+    std::vector<Switch*> mSwitches;  // List of modules present in the room
 
 private:
     std::string mName = "";         // Name of the room
@@ -22,9 +22,9 @@ private:
     int mId = 0;                    // Room ID (for the room list)
     int mWidth = 600;               // Widget width
     int mHeight = 350;              // Widget Height
-    QHBoxLayout* mLayout;            // Layout to display
+    QVBoxLayout* mLayout;            // Layout to display
 
-    bool addModule(Module* sModule);
+    bool addSwitch(Switch* sSwitch);
 
 signals:
 

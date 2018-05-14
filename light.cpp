@@ -13,7 +13,8 @@ Light:: Light(std::string name, bool state, QWidget* parent) : Module(name, stat
     //mPixmapImgON = new QPixmap(lightOnFile);
     //mPixmapImgOFF = new QPixmap(lightOffFile);
     mLabelImg = new QLabel(this);
-    mLabelImg->setText("Light OFF");
+    mLabelImg->setText(name.c_str());
+    mName = name;
     //mLabelImg->setPixmap(QPixmap("light-on.png"));
     //move(10,10);
     /*QGridLayout *gridLayout = new QGridLayout;
@@ -22,16 +23,19 @@ Light:: Light(std::string name, bool state, QWidget* parent) : Module(name, stat
 }
 
 // A slot that answer to switch button signal
-void Light::switchPixmap()
+void Light::switchState()
 {
+    std::string sText;
+    sText += mName;
     mState =! mState;
     if (mState)
-    {
-         //mLabelImg->setPixmap(QPixmap("lighton.png"));
-        mLabelImg->setText("Light ON");
+    {   sText += " ON";
+         //mLabelImg->setPixmap(QPixmap("lighton.png"));       
     }
-    else{mLabelImg->setText("Light OFF");
-    }  //mLabelImg->setPixmap(QPixmap("lightoff.png"));
+    else{
+        sText += " OFF";
+    }  //mLabelImg->;setPixmap(QPixmap("lightoff.png"));
+     mLabelImg->setText(sText.c_str());
 }
 
 Light::~Light()
